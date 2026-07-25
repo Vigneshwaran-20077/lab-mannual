@@ -1,32 +1,47 @@
-Problem:     
+Problem:    
  
-import java.awt.*; 
-import java.awt.event.*; 
+import java.io.*; 
+import java.util.Scanner; 
  
-public class SimpleCalculator extends Frame implements ActionListener { 
-    TextField t1 = new TextField(10), t2 = new TextField(10); 
-    Label l = new Label("Result"); 
-    Button b = new Button("Add"); 
+public class StudentFile { 
+    public static void main(String[] args) throws Exception { 
  
-    SimpleCalculator() { 
-        setLayout(new FlowLayout()); 
-        add(t1); add(t2); add(b); add(l); 
-        b.addActionListener(this); 
-        setSize(250,150); 
-        setVisible(true); 
-    } 
+        Scanner sc = new Scanner(System.in); 
  
-    public void actionPerformed(ActionEvent e) { 
-        int a = Integer.parseInt(t1.getText()); 
-        int c = Integer.parseInt(t2.getText()); 
-        l.setText("Result : " + (a + c)); 
-    } 
+        BufferedWriter bw = new BufferedWriter(new FileWriter("students.txt")); 
  
-    public static void main(String[] args) { 
-        new SimpleCalculator(); 
+        for (int i = 1; i <= 3; i++) { 
+            System.out.println("Student " + i); 
+ 
+            System.out.print("Roll No: "); 
+            int roll = sc.nextInt(); 
+            sc.nextLine(); 
+ 
+            System.out.print("Name: "); 
+            String name = sc.nextLine(); 
+ 
+            System.out.print("Marks: "); 
+            int marks = sc.nextInt(); 
+ 
+            bw.write(roll + "," + name + "," + marks); 
+            bw.newLine(); 
+        } 
+ 
+        bw.close(); 
+        System.out.println("\nStudent records saved successfully."); 
+ 
+        BufferedReader br = new BufferedReader(new FileReader("students.txt")); 
+ 
+        System.out.println("\nStudent Records"); 
+        String line; 
+ 
+        while ((line = br.readLine()) != null) { 
+            System.out.println(line); 
+        } 
+ 
+        br.close(); 
     } 
 } 
- 
  
  
  
