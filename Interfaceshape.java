@@ -1,5 +1,3 @@
-Problem:    
- 
 interface Shape { 
     double calculateArea(); 
 } 
@@ -68,8 +66,6 @@ public class Main {
         System.out.println("Area of Triangle = " + t.calculateArea()); 
     } 
 } 
- 
- 
  
  
  
