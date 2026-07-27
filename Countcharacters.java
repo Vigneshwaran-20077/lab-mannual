@@ -1,5 +1,3 @@
-Problem:  
- 
 import java.util.Scanner; 
  
 public class CountCharacters { 
@@ -32,3 +30,4 @@ public class CountCharacters {
         System.out.println("Special Characters: " + sp); 
     } 
 } 
+ 
